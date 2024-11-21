@@ -1,25 +1,28 @@
 import React from "react";
 
-function Button({ text, variant = "default", onClick }) {
+function Button({ text, variant = "default", onClick, className = "" }) {
   const baseStyles =
-    "font-urbanist rounded-full px-6 py-3 flex items-center justify-center text-sm font-medium transition-all duration-300 ease-in-out";
+    "font-urbanist rounded-full px-6 py-3 flex items-center justify-center transition-all duration-500 ease-in-out";
 
   // Variants for different button styles
   const variants = {
     default:
-      "bg-transparent border border-white text-white hover:bg-white hover:text-primary", // Transparent with white text
+      "bg-transparent border border-white text-white hover:bg-white hover:text-primary",
     outlineOrange:
-      "bg-transparent border border-secondary text-secondary hover:bg-secondary hover:text-white", // Orange outline
+      "bg-transparent border border-secondary text-secondary hover:bg-secondary hover:text-white",
     solidOrange:
-      "bg-secondary text-white hover:brightness-90", // Solid orange, remains orange
-    contact:
-      "bg-white text-primary border border-primary hover:bg-primary hover:text-white", // Dark background with hover white
+      "bg-secondary text-white",
+    darkdefault:
+      "bg-white text-primary border border-primary hover:bg-primary hover:text-white",
   };
 
   return (
-    <button className={`${baseStyles} ${variants[variant]}`} onClick={onClick}>
+    <button
+      className={`${baseStyles} ${variants[variant]} ${className}`}
+      onClick={onClick}
+    >
       {text}
-      <span className="ml-2">→</span>
+      <span className="ml-2"/>
     </button>
   );
 }

@@ -4,16 +4,13 @@ import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import Properties from "./pages/Properties";
 import PropertiesDetails from "./pages/PropertiesDetails";
-import Navbar from "./components/NavBar"; // Import the Navbar component
+import Navbar from "./components/NavBar";
 
 function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
-        {/* Navbar */}
         <Navbar />
-
-        {/* Main Content */}
         <main className="flex-grow bg-gray-100">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -22,8 +19,6 @@ function App() {
             <Route path="/PropertiesDetails" element={<PropertiesDetails />} />
           </Routes>
         </main>
-
-        {/* Footer */}
         <footer className="bg-white text-black py-4">
           <div className="container mx-auto flex justify-between items-center">
             <p>© All rights reserved. Flowfye.</p>

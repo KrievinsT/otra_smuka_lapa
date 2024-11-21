@@ -14,7 +14,7 @@ module.exports = {
         white: "#FFFF", // Background White
         black: "#000", // Background Black
         grey: "#56595A", // Background Grey
-        gradient: "#56595A", // Background Gradient
+        gradient: "#f7f5f0", // Background Gradient
       },
     },
   },
