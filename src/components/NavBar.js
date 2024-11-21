@@ -28,15 +28,10 @@ function Navbar() {
   return (
     <header className={`${navbarColor} h-20 w-full flex items-center`}>
       <nav className="w-full flex items-center justify-between px-6 md:px-[50px]">
-        {/* Logo */}
         <img src={logoImage} alt="Logo" className="h-10 w-auto" />
 
-        {/* Hamburger Menu for Mobile */}
-        <button
-          className={`md:hidden flex items-center`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle navigation"
-        >
+        {/* Hamburger*/}
+        <button className={`md:hidden flex items-center`} onClick={() => setIsMenuOpen(!isMenuOpen)}aria-label="Toggle navigation">
           {isMenuOpen ? (
             <img src={CloseIcon} alt="Close menu" className="h-8 w-8" />
           ) : (
@@ -49,29 +44,19 @@ function Navbar() {
           )}
         </button>
 
-        {/* Navigation Links for Desktop */}
         <ul className={`hidden md:flex space-x-8 text-lg font-medium items-center`}>
           <li>
-            <Link
-              to="/"
-              className={`font-urbanist text-xl font-thin hover:text-secondary transition ${linkTextColor}`}
-            >
+            <Link to="/" className={`font-urbanist text-xl font-thin hover:text-secondary transition ${linkTextColor}`}>
               Home
             </Link>
           </li>
           <li>
-            <Link
-              to="/Properties"
-              className={`font-urbanist text-xl font-thin hover:text-secondary transition ${linkTextColor}`}
-            >
+            <Link to="/Properties" className={`font-urbanist text-xl font-thin hover:text-secondary transition ${linkTextColor}`}>
               Properties
             </Link>
           </li>
           <li>
-            <Link
-              to="/contact-us"
-              className={`font-urbanist text-xl font-thin hover:text-secondary transition ${linkTextColor}`}
-            >
+            <Link to="/contact-us" className={`font-urbanist text-xl font-thin hover:text-secondary transition ${linkTextColor}`}>
               Contact Us
             </Link>
           </li>
@@ -80,132 +65,60 @@ function Navbar() {
           </li>
         </ul>
 
-        {/* Call-to-Action Button for Desktop */}
+        {/* Only visable on desktop*/}
         <div className="hidden md:block">
-          <Button
-            text="Get for Free"
-            className={`font-thin text-xl px-8 py-4`}
-            variant={isPropertiesDetails ? "darkdefault" : "default"}
-          />
+          <Button text="Get for Free" className={`font-thin text-xl px-8 py-4`} variant={isPropertiesDetails ? "darkdefault" : "default"}/>
         </div>
 
-        {/* Sliding Mobile Menu - Fullscreen */}
-        <div
-          className={`fixed top-0 right-0 h-full w-full bg-white transition-transform duration-500 ease-in-out transform ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          } z-50 md:hidden`}
-        >
+        {/* Slide */}
+        <div className={`fixed top-0 right-0 h-full w-full bg-white transition-transform duration-500 ease-in-out transform ${ isMenuOpen ? "translate-x-0" : "translate-x-full"} z-50 md:hidden`}>
           <div className="flex items-center justify-between p-6">
-            {/* Logo inside mobile menu */}
             <img src={RealtifyeLogo} alt="Logo" className="h-10 w-auto" />
-
-            {/* Close Button */}
-            <button
-              className="text-black"
-              onClick={() => setIsMenuOpen(false)}
-              aria-label="Close navigation"
-            >
+            <button className="text-black" onClick={() => setIsMenuOpen(false)}aria-label="Close navigation">
               <img src={CloseIcon} alt="Close menu" className="h-8 w-8" />
             </button>
           </div>
 
           <ul className="flex flex-col items-start space-y-4 py-4 px-6 text-black">
             <li>
-              <Link
-                to="/"
-                className="font-urbanist text-xl font-thin hover:text-secondary transition text-black"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link to="/" className="font-urbanist text-2xl font-thin hover:text-secondary transition text-black" onClick={() => setIsMenuOpen(false)}>
                 Home
               </Link>
             </li>
             <li>
-              <Link
-                to="/Properties"
-                className="font-urbanist text-xl font-thin hover:text-secondary transition text-black"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link to="/Properties" className="font-urbanist text-2xl font-thin hover:text-secondary transition text-black" onClick={() => setIsMenuOpen(false)}>
                 Properties
               </Link>
             </li>
             <li>
-              <Link
-                to="/contact-us"
-                className="font-urbanist text-xl font-thin hover:text-secondary transition text-black"
-                onClick={() => setIsMenuOpen(false)}
-              >
+              <Link to="/contact-us" className="font-urbanist text-2xl font-thin hover:text-secondary transition text-black" onClick={() => setIsMenuOpen(false)}>
                 Contact Us
               </Link>
             </li>
             <li>
-              {/* Pages Dropdown for Mobile Menu */}
+              {/* DropDown mobile*/}
               <button
-                className="font-urbanist text-xl font-thin flex items-center gap-2 hover:text-secondary transition text-black"
+                className="font-urbanist text-2xl font-thin flex items-center gap-2 hover:text-secondary transition text-black"
                 onClick={() => setIsPagesOpen(!isPagesOpen)}
               >
                 Pages
-                <img
-                  src={ArrowDark} // Always use ArrowDark (black arrow) for visibility
-                  alt="Arrow"
-                  className={`w-4 h-4 transform transition-transform duration-300 ${
-                    isPagesOpen ? "rotate-180" : "rotate-0"
-                  }`}
-                />
+                <img src={ArrowDark} alt="Arrow" className={`w-8 h-8 transform transition-transform duration-300 ${isPagesOpen ? "rotate-180" : "rotate-0"}`}/>
               </button>
               {isPagesOpen && (
                 <ul className="flex flex-col items-start space-y-3 pl-4 mt-2 text-black">
                   <li>
-                    <Link
-                      to="/Properties"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
+                    <Link to="/Properties" className="font-urbanist text-2xl font-thin text-black hover:text-secondary transition" onClick={() => setIsMenuOpen(false)}>
                       Properties
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      to="/PropertiesDetails"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
+                    <Link to="/PropertiesDetails" className="font-urbanist text-2xl font-thin text-black hover:text-secondary transition" onClick={() => setIsMenuOpen(false)}>
                       Properties Details
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      to="/contact-us"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
+                    <Link to="/contact-us" className="font-urbanist text-2xl font-thin text-black hover:text-secondary transition" onClick={() => setIsMenuOpen(false)}>
                       Contact Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/style-guides"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Style Guides
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/licenses"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Licenses
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/changelog"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Changelog
                     </Link>
                   </li>
                 </ul>
