@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import HomeifyeLogo from "../Images/brand-logo.svg"; // Homeifye logo for dark background
-import HomeifyeLogoDark from "../Images/brand-logo-dark.svg"; // Homeifye logo for light background
-import RealtifyeLogo from "../Images/logo-dark.svg"; // Realtifye logo for open state
-import ArrowDark from "../Images/arrow_down_black.svg"; // Arrow icon in black
+import HomeifyeLogo from "../Images/brand-logo.svg";
+import HomeifyeLogoDark from "../Images/brand-logo-dark.svg";
+import RealtifyeLogo from "../Images/logo-dark.svg";
+import ArrowDark from "../Images/arrow_down_black.svg";
 import Button from "../components/Button";
 import DropDown from "../components/DropDown";
-import CloseIcon from "../Images/x.svg"; // Close icon
+import CloseIcon from "../Images/x.svg";
 
 function Navbar() {
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle mobile menu
-  const [isPagesOpen, setIsPagesOpen] = useState(false); // State to toggle dropdown for "Pages" in mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPagesOpen, setIsPagesOpen] = useState(false);
 
   // Close the menu whenever the route changes
   useEffect(() => {
-    setIsMenuOpen(false); // Close the menu on navigation
+    setIsMenuOpen(false);
   }, [location.pathname]);
 
   // Determine if navbar is in dark or light mode
