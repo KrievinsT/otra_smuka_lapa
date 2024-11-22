@@ -5,7 +5,8 @@ import ContactUs from "./pages/ContactUs";
 import Properties from "./pages/Properties";
 import PropertiesDetails from "./pages/PropertiesDetails";
 import Navbar from "./components/NavBar";
-
+import Footer from "./components/Footer";
+import CTASection from "./components/CTASection";
 function App() {
   return (
     <Router>
@@ -19,12 +20,8 @@ function App() {
             <Route path="/PropertiesDetails" element={<PropertiesDetails />} />
           </Routes>
         </main>
-        <footer className="bg-white text-black py-4">
-          <div className="container mx-auto flex justify-between items-center">
-            <p>© All rights reserved. Flowfye.</p>
-            <p>Powered by Webflow.</p>
-          </div>
-        </footer>
+        <CTASection />
+        <Footer />
       </div>
     </Router>
   );

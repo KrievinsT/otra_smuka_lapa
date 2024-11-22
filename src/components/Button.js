@@ -1,6 +1,6 @@
 import React from "react";
 
-function Button({ text, variant = "default", onClick, className = "" }) {
+function Button({ text, variant = "default", onClick, className = "", children }) {
   const baseStyles =
     "font-urbanist rounded-full px-6 py-3 flex items-center justify-center transition-all duration-500 ease-in-out";
 
@@ -22,7 +22,7 @@ function Button({ text, variant = "default", onClick, className = "" }) {
       onClick={onClick}
     >
       {text}
-      <span className="ml-2"/>
+      {children && <span className="ml-2">{children}</span>}
     </button>
   );
 }

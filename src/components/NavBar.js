@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import HomeifyeLogo from "../Images/brand-logo.svg"; // Homeifye logo for closed state
 import RealtifyeLogo from "../Images/logo-dark.svg"; // Realtifye logo for open state
-import ArrowLight from "../Images/arrow_down.svg";
 import ArrowDark from "../Images/arrow_down_black.svg";
 import Button from "../components/Button";
 import DropDown from "../components/DropDown";
@@ -106,54 +105,33 @@ function Navbar() {
             <li>
               {/* Dropdown */}
               <button
-                className="font-urbanist text-xl font-thin flex items-center gap-2 hover:text-secondary transition text-black"
+                className="font-urbanist text-xl font-thin hover:text-secondary transition text-black flex items-center gap-2"
                 onClick={() => setIsPagesOpen(!isPagesOpen)}>
                 Pages
-                <img src={isPagesOpen ? ArrowLight : ArrowDark} alt="Arrow"
-                  className={`w-4 h-4 transform transition-transform duration-300 ${isPagesOpen ? "rotate-180" : "rotate-0" }`}/>
+                <img src={ArrowDark} alt="Arrow"
+                  className={`w-8 h-8 transform transition-transform duration-300 ${isPagesOpen ? "rotate-180" : "rotate-0" }`}/>
               </button>
               {isPagesOpen && (
                 <ul className="flex flex-col items-start space-y-3 pl-4 mt-2 text-black">
                   <li>
                     <Link to="/Properties"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
+                      className="font-urbanist text-xl font-thin hover:text-secondary transition text-black"
                       onClick={() => setIsMenuOpen(false)}>
                       Properties
                     </Link>
                   </li>
                   <li>
                     <Link to="/PropertiesDetails"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
+                      className="font-urbanist text-xl font-thin hover:text-secondary transition text-black"
                       onClick={() => setIsMenuOpen(false)}>
                       Properties Details
                     </Link>
                   </li>
                   <li>
                     <Link to="/contact-us"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
+                      className="font-urbanist text-xl font-thin hover:text-secondary transition text-black"
                       onClick={() => setIsMenuOpen(false)}>
                       Contact Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/style-guides"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
-                      onClick={() => setIsMenuOpen(false)}>
-                      Style Guides
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/licenses"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
-                      onClick={() => setIsMenuOpen(false)}>
-                      Licenses
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/changelog"
-                      className="font-urbanist text-lg font-thin text-black hover:text-secondary transition"
-                      onClick={() => setIsMenuOpen(false)}>
-                      Changelog
                     </Link>
                   </li>
                 </ul>
