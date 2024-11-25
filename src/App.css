@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+.custom-dropdown-panel {
+  @apply bg-white; /* Ensure dropdown panel background is white */
+}
+
+.custom-dropdown-panel .p-dropdown-item {
+  @apply px-4 py-2;
+}
+
+.custom-dropdown-panel .p-dropdown-item:hover {
+  @apply bg-secondary text-white; /* Set the hover background to secondary color */
+}
+
