@@ -6,7 +6,7 @@ import SectionImage from "../Images/section-cta-image.png";
 function CTASection() {
   return (
     <section className="bg-primary text-white w-full bg-primary text-white w-full pb-12 lg:pb-0">
-      <div className="max-w-[80%] mx-auto flex flex-col lg:flex-row items-center justify-between">
+      <div className="max-w-[90%] mx-auto flex flex-col lg:flex-row items-center justify-between">
         
         {/* Image Section */}
         <div>

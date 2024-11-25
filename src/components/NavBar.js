@@ -6,7 +6,6 @@ import RealtifyeLogo from "../Images/logo-dark.svg"; // Logo for mobile burger o
 import ArrowDark from "../Images/arrow_down_black.svg"; // Arrow for light navbar
 import ArrowLight from "../Images/arrow_down.svg"; // Arrow for dark navbar
 import Button from "../components/Button";
-import DropDown from "../components/DropDown";
 import CloseIcon from "../Images/x.svg"; // Close icon
 
 function Navbar() {
@@ -27,7 +26,7 @@ function Navbar() {
   const arrowImage = isPropertiesDetails ? ArrowDark : ArrowLight; // Use appropriate arrow based on theme
 
   return (
-    <header className={`${navbarColor} h-20 w-full flex items-center`}>
+    <header className={`${navbarColor} h-28 w-full flex items-center`}>
       <nav className="w-full flex items-center justify-between px-6 lg:px-[50px]">
         <img src={logoImage} alt="Logo" className="h-10 w-auto" />
 
@@ -131,7 +130,7 @@ function Navbar() {
         <div className="hidden lg:block">
           <Button
             text="Get for Free"
-            className={`font-thin text-xl px-8 py-4`}
+            className={`font-thin text-xl px-4 py-2`}
             variant={isPropertiesDetails ? "darkdefault" : "default"}
           />
         </div>
