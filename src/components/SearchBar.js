@@ -30,11 +30,11 @@ function SearchBar() {
   }, []);
 
   return (
-    <div className="w-[95vw] mx-auto px-2 py-2">
-      <div className="bg-white rounded-2xl font-extralight shadow-md flex flex-wrap lg:flex-wrap xl:flex-nowrap items-center justify-center w-full p-4 lg:p-8 space-y-4 lg:space-y-4 xl:space-y-0 xl:space-x-12 h-auto lg:h-auto xl:h-40">
+    <div className="w-[100vw] mx-auto px-2 py-2">
+      <div className="bg-white rounded-2xl font-extralight shadow-md flex flex-wrap lg:flex-wrap xl:flex-nowrap items-center justify-center w-full p-4 lg:p-8 space-y-4 lg:space-y-4 xl:space-y-0 xl:space-x-12 h-auto lg:h-auto xl:h-36">
 
         {/* Search Input */}
-        <div className="flex items-center w-full bg-white rounded-full px-4 py-4 border border-gray-200 h-14 md:h-16 lg:h-16 xl:h-20 relative">
+        <div className="flex items-center w-full bg-white rounded-full px-4 py-4 border border-gray-200 h-12 md:h-14 lg:h-14 xl:h-18 relative">
           <img src={SearchIcon} alt="Search Icon" className="w-5 h-5 mr-4 text-gray-400" />
           <input
             type="text"
@@ -44,7 +44,7 @@ function SearchBar() {
           <Button
             text="Search"
             variant="solidOrange"
-            className="font-bold hidden md:block h-10 md:h-12 xl:h-14 absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center justify-center px-4 leading-none"
+            className="font-bold hidden md:block h-10 md:h-12 xl:h-12 absolute right-1 top-1/2 transform -translate-y-1/2 flex items-center justify-center px-4 leading-none"
           />
         </div>
 
@@ -63,7 +63,7 @@ function SearchBar() {
           {/* Properties Popup */}
           <div className="relative w-full md:w-[32%] lg:w-[32%] xl:w-[31%]">
             <div
-              className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-14 md:h-16 lg:h-16 xl:h-20 cursor-pointer"
+              className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-12 md:h-14 lg:h-14 xl:h-18 cursor-pointer"
               onClick={() => togglePopup("properties")}
             >
               <img src={HomeIcon} alt="Properties Icon" className="w-6 h-6" />
@@ -88,7 +88,7 @@ function SearchBar() {
           {/* Location Popup */}
           <div className="relative w-full md:w-[32%] lg:w-[32%] xl:w-[31%]">
             <div
-              className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-14 md:h-16 lg:h-16 xl:h-20 cursor-pointer"
+              className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-12 md:h-14 lg:h-14 xl:h-18 cursor-pointer"
               onClick={() => togglePopup("location")}
             >
               <img src={LocationIcon} alt="Location Icon" className="w-6 h-6" />
@@ -113,7 +113,7 @@ function SearchBar() {
           {/* Types Popup */}
           <div className="relative w-full md:w-[32%] lg:w-[32%] xl:w-[31%]">
             <div
-              className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-14 md:h-16 lg:h-16 xl:h-20 cursor-pointer"
+              className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-12 md:h-14 lg:h-14 xl:h-18 cursor-pointer"
               onClick={() => togglePopup("types")}
             >
               <img src={TypesIcon} alt="Types Icon" className="w-6 h-6" />

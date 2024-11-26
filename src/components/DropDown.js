@@ -8,32 +8,32 @@ function DropDown({ isDark }) {
   const dropdownRef = useRef(null);
   const location = useLocation();
 
+  // Toggle dropdown state
   const toggleDropdown = () => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
   };
 
+  // Close the dropdown
   const closeDropdown = useCallback(() => {
     setIsOpen(false);
   }, []);
 
-  // Global click listener using useCallback
+  // Handle clicking outside of dropdown to close it
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (!dropdownRef.current.contains(event.target)) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         closeDropdown();
       }
     };
 
-    // Check if the dropdown is open before adding the event listener
     if (isOpen) {
-      document.addEventListener("click", handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     }
 
-    // Cleanup function to remove listener
     return () => {
-      document.removeEventListener("click", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen, closeDropdown]); // Dependencies on isOpen and closeDropdown
+  }, [isOpen, closeDropdown]);
 
   // Close dropdown on route change
   useEffect(() => {
@@ -41,7 +41,8 @@ function DropDown({ isDark }) {
   }, [location, closeDropdown]);
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative z-50" ref={dropdownRef}>
+      {/* Button to toggle the dropdown */}
       <button
         className={`font-urbanist text-2xl font-thin flex items-center gap-2 ${
           isDark ? "text-white" : "text-black"
@@ -59,12 +60,39 @@ function DropDown({ isDark }) {
         />
       </button>
 
+      {/* Dropdown menu */}
       {isOpen && (
-        <div className={`absolute right-0 mt-2 w-48 bg-gradient rounded-lg shadow-lg z-50`}>
+        <div
+          className="absolute top-full mt-2 left-0 w-48 bg-white rounded-lg shadow-lg z-50"
+        >
           <ul className="py-2">
-            <li><Link to="/Properties" onClick={closeDropdown}>Properties</Link></li>
-            <li><Link to="/PropertiesDetails" onClick={closeDropdown}>Properties Details</Link></li>
-            <li><Link to="/contact-us" onClick={closeDropdown}>Contact Us</Link></li>
+            <li>
+              <Link
+                to="/Properties"
+                className="block px-4 py-2 text-black hover:bg-gray-100 transition"
+                onClick={closeDropdown}
+              >
+                Properties
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/PropertiesDetails"
+                className="block px-4 py-2 text-black hover:bg-gray-100 transition"
+                onClick={closeDropdown}
+              >
+                Properties Details
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact-us"
+                className="block px-4 py-2 text-black hover:bg-gray-100 transition"
+                onClick={closeDropdown}
+              >
+                Contact Us
+              </Link>
+            </li>
           </ul>
         </div>
       )}

@@ -1,62 +1,125 @@
-// Properties.js
-import React from "react";
+import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import PropertyCard from "../components/PropertyCard";
-
-// Sample property data (in a real use-case, you might fetch this from an API)
-const properties = [
-  {
-    id: 1,
-    image: "https://via.placeholder.com/400", // Replace with actual image URLs
-    name: "Pine Estates",
-    price: "180000",
-  },
-  {
-    id: 2,
-    image: "https://via.placeholder.com/400",
-    name: "Maple Grove",
-    price: "400000",
-  },
-  {
-    id: 3,
-    image: "https://via.placeholder.com/400",
-    name: "Willow Heights",
-    price: "290000",
-  },
-];
+import properties from "../data/PropertiesData";
+import Button from "../components/Button";
 
 function Properties() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const propertiesPerPage = 6;
+
+  // Calculate the number of pages
+  const totalPages = Math.ceil(properties.length / propertiesPerPage);
+
+  // Get current properties to display
+  const indexOfLastProperty = currentPage * propertiesPerPage;
+  const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
+  const currentProperties = properties.slice(indexOfFirstProperty, indexOfLastProperty);
+
+  // Pagination handlers
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full font-urbanist">
       {/* Top Section with Green Background */}
-      <div className="bg-primary text-white w-full px-8 pt-16 pb-40 relative">
-        {/* Breadcrumb Navigation */}
-        <div className="text-sm mb-4">
-          <span className="opacity-70">Home</span> / <span className="font-semibold">Properties</span>
+      <div className="bg-primary text-white w-full px-4 pt-16 pb-12 sm:px-8 relative flex justify-center">
+        <div className="max-w-7xl w-full">
+          {/* Breadcrumb Navigation */}
+          <div className="text-sm mb-4">
+            <span className="font-thin">Home / Properties</span>
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium mb-12">Properties</h1>
         </div>
+      </div>
 
-        {/* Main Heading */}
-        <h1 className="text-5xl md:text-6xl font-bold mb-16">Properties</h1>
-
-        {/* Search Bar Section - positioned half on green, half on white */}
-        <div className="absolute left-[2%] bottom-[-80px] w-[90%] max-w-4xl">
-          <SearchBar />
+      {/* Search Bar Section */}
+      <div className="relative w-full bg-white py-8 bg-[linear-gradient(to_bottom,_#09261D_50%,_#ffffff_50%)]">
+        <div className="max-w-7.5xl mx-auto px-4 sm:px-6">
+          <div className="w-full flex items-center justify-center">
+            <SearchBar />
+          </div>
         </div>
       </div>
 
       {/* Bottom Section with White Background */}
-      <div className="bg-white pt-48 px-8 pb-16">
-        <div className="container mx-auto">
+      <div className="bg-white pt-12 sm:px-8 pb-16">
+        <div className="max-w-7.5xl mx-auto sm:px-6">
           {/* Properties Listing */}
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 justify-items-center">
-            {properties.map((property) => (
+          <div className="grid gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center w-full mx-auto">
+            {currentProperties.map((property) => (
               <PropertyCard
                 key={property.id}
                 image={property.image}
                 name={property.name}
                 price={property.price}
+                address={property.address}
+                totalLandArea={property.totalLandArea}
               />
             ))}
+          </div>
+
+          {/* Pagination Buttons */}
+          <div className="flex justify-center items-center mt-12 gap-4">
+            {currentPage > 1 && (
+              <Button
+                variant="outlineOrange"
+                layout="pagination"
+                onClick={handlePreviousPage}
+                className="group flex items-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 28 28"
+                  width="24"
+                  height="24"
+                  className="w-5 h-5 text-secondary transition-colors duration-300 group-hover:text-white"
+                >
+                  <path
+                    d="M15.5 4L6 13.5 15.5 23"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                </svg>
+                <span className="ml-2">Previous</span>
+              </Button>
+            )}
+            {currentPage < totalPages && (
+              <Button
+                variant="outlineOrange"
+                layout="pagination"
+                onClick={handleNextPage}
+                className="group flex items-center"
+              >
+                <span className="mr-2">Next</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 28 28"
+                  width="24"
+                  height="24"
+                  className="w-5 h-5 text-secondary transition-colors duration-300 group-hover:text-white"
+                >
+                  <path
+                    d="M12.5 4L22 13.5 12.5 23"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    fill="none"
+                  />
+                </svg>
+              </Button>
+            )}
           </div>
         </div>
       </div>
