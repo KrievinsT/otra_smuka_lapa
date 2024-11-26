@@ -1,22 +1,33 @@
-import React from "react";
+// SearchBar.js
+import React, { useState, useRef, useEffect } from "react";
 import Button from "./Button"; // Import your Button component.
-import HomeIcon from "../Images/home-icon.svg"; // Replace with the correct path.
+import HomeIcon from "../Images/home-icon.svg";
 import LocationIcon from "../Images/location-icon.svg";
 import TypesIcon from "../Images/types-icon.svg";
+import ArrowIcon from "../Images/arrow_down_grey.svg";
 import SearchIcon from "../Images/search-icon-lite.svg";
-import { Dropdown } from 'primereact/dropdown';
-import "../App.css";
 
 function SearchBar() {
-  const propertyOptions = [
-    { label: "Cabin", value: "cabin" },
-    { label: "Townhouse", value: "townhouse" },
-    { label: "Mansion", value: "mansion" },
-    { label: "Vacation Home", value: "vacation" },
-    { label: "Commercial Property", value: "commercial" },
-    { label: "Farmhouse", value: "farmhouse" },
-    { label: "Apartment", value: "apartment" },
-  ];
+  const [showPopup, setShowPopup] = useState(null);
+  const popupRef = useRef(null);
+
+  const togglePopup = (popup) => {
+    setShowPopup((prev) => (prev === popup ? null : popup));
+  };
+
+  // Handle outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setShowPopup(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="w-[95vw] mx-auto px-2 py-2">
@@ -46,43 +57,82 @@ function SearchBar() {
           />
         </div>
 
-        {/* Dropdown Container */}
-        <div className="flex flex-wrap items-center justify-between w-full space-y-4 lg:space-y-0 lg:space-x-4 mt-4 xl:mt-0">
-          
-          {/* Properties Dropdown */}
-          <div className="flex items-center w-full md:w-[32%] lg:w-[32%] xl:w-[31%] bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-14 md:h-16 lg:h-16 xl:h-20 relative custom-dropdown-panel">
-            <img src={HomeIcon} alt="Properties Icon" className="w-6 h-6" />
-            <Dropdown
-              className="w-full lg:w-full xl:w-full"
-              value={propertyOptions[0].value}
-              options={propertyOptions}
-              placeholder="Select a Property"
-              panelClassName="custom-dropdown-panel"
-            />
+        {/* Popup Menus */}
+        <div ref={popupRef} className="flex flex-wrap items-center justify-between w-full space-y-4 lg:space-y-0 lg:space-x-4 mt-4 xl:mt-0">
+
+          {/* Properties Popup */}
+          <div className="relative w-full md:w-[32%] lg:w-[32%] xl:w-[31%]">
+            <div
+              className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-14 md:h-16 lg:h-16 xl:h-20 cursor-pointer"
+              onClick={() => togglePopup("properties")}
+            >
+              <img src={HomeIcon} alt="Properties Icon" className="w-6 h-6" />
+              <span className="flex-grow text-black">Properties</span>
+              <img src={ArrowIcon} alt="Dropdown Arrow" className="w-6 h-6" />
+            </div>
+            {showPopup === "properties" && (
+              <div className="absolute top-full left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-50">
+                {["Cabin", "Townhouse", "Mansion", "Vacation Home", "Commercial Property", "Farmhouse", "Apartment"].map((item) => (
+                  <div
+                    key={item}
+                    className="relative py-2 px-4 cursor-pointer transition group text-black"
+                  >
+                    <span className="relative z-10 group-hover:text-white">{item}</span>
+                    <div className="absolute inset-0.5 rounded-lg bg-secondary scale-95 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"></div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Location Dropdown */}
-          <div className="flex items-center w-full md:w-[32%] lg:w-[32%] xl:w-[31%] bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-14 md:h-16 lg:h-16 xl:h-20 relative custom-dropdown-panel">
-            <img src={LocationIcon} alt="Location Icon" className="w-6 h-6" />
-            <Dropdown
-              className="w-full lg:w-full xl:w-full"
-              value={propertyOptions[0].value} // replace with location options
-              options={propertyOptions} // replace with location options
-              placeholder="Select Location"
-              panelClassName="custom-dropdown-panel"
-            />
+          {/* Location Popup */}
+          <div className="relative w-full md:w-[32%] lg:w-[32%] xl:w-[31%]">
+            <div
+              className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-14 md:h-16 lg:h-16 xl:h-20 cursor-pointer"
+              onClick={() => togglePopup("location")}
+            >
+              <img src={LocationIcon} alt="Location Icon" className="w-6 h-6" />
+              <span className="flex-grow text-black">Location</span>
+              <img src={ArrowIcon} alt="Dropdown Arrow" className="w-6 h-6" />
+            </div>
+            {showPopup === "location" && (
+              <div className="absolute top-full left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-50">
+                {["New York", "Los Angeles", "Chicago"].map((item) => (
+                  <div
+                    key={item}
+                    className="relative py-2 px-4 cursor-pointer transition group text-black"
+                  >
+                    <span className="relative z-10 group-hover:text-white">{item}</span>
+                    <div className="absolute inset-0.5 rounded-lg bg-secondary scale-95 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"></div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Type Dropdown */}
-          <div className="flex items-center w-full md:w-[32%] lg:w-[32%] xl:w-[31%] bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-14 md:h-16 lg:h-16 xl:h-20 relative custom-dropdown-panel">
-            <img src={TypesIcon} alt="Types Icon" className="w-5 h-5" />
-            <Dropdown
-              className="w-full lg:w-full xl:w-full"
-              value={propertyOptions[0].value} // replace with type options
-              options={propertyOptions} // replace with type options
-              placeholder="Select Type"
-              panelClassName="custom-dropdown-panel"
-            />
+          {/* Types Popup */}
+          <div className="relative w-full md:w-[32%] lg:w-[32%] xl:w-[31%]">
+            <div
+              className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-14 md:h-16 lg:h-16 xl:h-20 cursor-pointer"
+              onClick={() => togglePopup("types")}
+            >
+              <img src={TypesIcon} alt="Types Icon" className="w-6 h-6" />
+              <span className="flex-grow text-black">Types</span>
+              <img src={ArrowIcon} alt="Dropdown Arrow" className="w-6 h-6" />
+            </div>
+            {showPopup === "types" && (
+              <div className="absolute top-full left-0 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-50">
+                {["Buy", "Rent", "Lease"].map((item) => (
+                  <div
+                    key={item}
+                    className="relative py-2 px-4 cursor-pointer transition group text-black"
+                  >
+                    <span className="relative z-10 group-hover:text-white">{item}</span>
+                    <div className="absolute inset-0.5 rounded-lg bg-secondary scale-95 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:scale-100"></div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
         </div>

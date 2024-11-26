@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import 'primereact/resources/themes/saga-blue/theme.css'; // You can choose a different theme if you want
-import 'primereact/resources/primereact.min.css';
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
 import Properties from "./pages/Properties";
