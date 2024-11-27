@@ -3,6 +3,7 @@ import Button from "../components/Button"; // Importing your reusable Button com
 import AllOffices from "../components/AllOffices";
 
 function ContactUs() {
+  console.log("Home component has started rendering");
   return (
     <div className="w-full bg-white font-urbanist">
       <div className="bg-primary text-white w-full px-4 pt-16 md:pt-24 pb-12 sm:px-6 flex justify-center lg:pb-20 lg:pt-32">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SearchBar from "../components/SearchBar";
 import { ReactComponent as RightArrow } from "../Images/Rightarrow.svg";
 import SectionImage from "../Images/home-hero.avif"; // Import Section Image
@@ -7,8 +7,15 @@ import VideoHero from "../Videos/video-hero-transcode.mp4"; // Import the video
 import PropertyCard from "../components/PropertyCard"; // Import PropertyCard component
 import properties from "../data/PropertiesData"; // Import properties data
 import Button from "../components/Button"; // Import reusable Button component
+import AboutImageHouse from "../Images/home-about-image-float.png"; // Import the About Us main image
+import AboutImageMain from "../Images/home-about-image.avif"; // Import the About Us secondary image
+import Dollar from "../Images/dollar-icon.svg";
+import Like from "../Images/like-icon.svg";
+import People from "../Images/people-icon.svg";
+import FeaturedListings from "../components/FeaturedListings";
 
 function Home() {
+  console.log("Home component has started rendering");
   return (
     <>
       <section className="bg-primary text-white w-full pb-12 lg:pb-0">
@@ -62,7 +69,7 @@ function Home() {
         </div>
       </div>
       {/* New Listings Section */}
-      <section className="max-w-7xl mx-auto mt-16 px-4 md:px-8 lg:px-12">
+      <section className="max-w-7xl mx-auto mt-16 px-4 md:px-8 lg:px-12 pb-32">
         <div className="flex items-center justify-between mb-8">
           <h2 className="font-urbanist text-4xl font-semibold text-primary">
             New Listings
@@ -78,7 +85,7 @@ function Home() {
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* Using PropertyCard for each listing from the properties data */}
-          {properties.slice(0, 6).map((property) => (
+          {properties.slice(0, 3).map((property) => (
             <PropertyCard
               key={property.id}
               image={property.image}
@@ -90,6 +97,95 @@ function Home() {
           ))}
         </div>
       </section>
+      <section className="w-full bg-primary text-white pt-28 pb-64 px-6 md:px-16 lg:px-20">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between relative">
+          <div className="relative flex w-full md:w-1/2 justify-start items-start">
+            <div className="w-[520px] h-auto">
+              <img
+                src={AboutImageMain}
+                alt="Team"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-20 right-8 w-[300px] h-[300px] rounded-full overflow-hidden">
+              <img
+                src={AboutImageHouse}
+                alt="House"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+          <div className="w-full md:w-1/2 mt-16 md:mt-0 flex flex-col space-y-4 z-10 px-4">
+            <h3 className="font-urbanist text-2xl font-normal mb-4">About Us</h3>
+            <h4 className="font-urbanist text-7xl font-medium">
+              About our
+            </h4>
+            <h4 className="font-urbanist text-7xl font-medium">
+              Real Estate Firm
+            </h4>
+            <div className="pb-6">
+            <p className="font-normal text-lg mt-4">
+              Our mission is simple: to provide unparalleled expertise, guidance,
+              and support to our clients across their real estate journey.
+            </p>
+            </div>
+            <div className="mt-8 space-y-6">
+            <div className="pb-4">
+              <div className="flex items-center space-x-4">
+                <span className="text-green-400 text-2xl w-">
+                  <img
+                    src={Dollar}
+                    alt="House"
+                    className="w-[40px] h-[40px] object-cover"
+                  />
+                </span>
+                  <div>
+                    <h4 className="font-normal text-3xl">Affordable Price</h4>
+                    <p className="font-base">
+                      Offering competitive rates that make quality accessible to all.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="pb-4">
+                <div className="flex items-center space-x-4">
+                  <span className="text-yellow-400 text-2xl">
+                    <img
+                      src={Like}
+                      alt="House"
+                      className="w-[40px] h-[40px] object-cover"
+                    />
+                  </span>
+                  <div>
+                    <h4 className="font-normal text-3xl">Clear Legality</h4>
+                    <p className="font-normal">
+                      Ensuring transparent and compliant legal processes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="pb-4">
+                <div className="flex items-center space-x-4">
+                  <span className="text-blue-400 text-2xl">
+                    <img
+                      src={People}
+                      alt="House"
+                      className="w-[40px] h-[40px] object-cover"
+                    />
+                  </span>
+                  <div>
+                    <h4 className="font-normal text-3xl">Experienced Agents</h4>
+                    <p className="font-normal">
+                      Guided by professionals with expertise in the industry.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <FeaturedListings />
     </>
   );
 }

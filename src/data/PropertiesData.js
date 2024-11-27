@@ -14,6 +14,7 @@ const properties = [
     bedrooms: 4,
     bathrooms: 3,
     kitchens: 1,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
   {
     id: 2,
@@ -30,6 +31,7 @@ const properties = [
     bedrooms: 7,
     bathrooms: 6,
     kitchens: 2,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
   {
     id: 3,
@@ -46,6 +48,7 @@ const properties = [
     bedrooms: 5,
     bathrooms: 3,
     kitchens: 1,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
   {
     id: 4,
@@ -62,6 +65,7 @@ const properties = [
     bedrooms: 6,
     bathrooms: 5,
     kitchens: 1,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
   {
     id: 5,
@@ -78,6 +82,7 @@ const properties = [
     bedrooms: 8,
     bathrooms: 6,
     kitchens: 2,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
   {
     id: 6,
@@ -94,6 +99,7 @@ const properties = [
     bedrooms: 2,
     bathrooms: 1,
     kitchens: 1,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
   {
     id: 7,
@@ -110,6 +116,7 @@ const properties = [
     bedrooms: 4,
     bathrooms: 3,
     kitchens: 1,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
   {
     id: 8,
@@ -126,6 +133,7 @@ const properties = [
     bedrooms: 10,
     bathrooms: 7,
     kitchens: 2,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
   {
     id: 9,
@@ -142,6 +150,7 @@ const properties = [
     bedrooms: 5,
     bathrooms: 4,
     kitchens: 1,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
   {
     id: 10,
@@ -158,6 +167,7 @@ const properties = [
     bedrooms: 6,
     bathrooms: 5,
     kitchens: 1,
+    detailedDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce aliquam pulvinar gravida. Vestibulum porttitor ex eu nulla condimentum, fringilla aliquet arcu pharetra. Integer bibendum mi.",
   },
 ];
 
