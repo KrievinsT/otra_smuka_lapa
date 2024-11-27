@@ -7,11 +7,14 @@ import PropertiesDetails from "./pages/PropertiesDetails";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
 import CTASection from "./components/CTASection";
+
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="flex flex-col min-h-screen">
+        {/* Navbar Component */}
         <Navbar />
+        
         <main className="flex-grow bg-gray-100">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -20,7 +23,9 @@ function App() {
             <Route path="/PropertiesDetails" element={<PropertiesDetails />} />
           </Routes>
         </main>
+
         <CTASection />
+        
         <Footer />
       </div>
     </Router>

@@ -12,6 +12,7 @@ function Navbar() {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to toggle mobile menu
   const [isPagesOpen, setIsPagesOpen] = useState(false); // State to toggle dropdown for "Pages" in mobile menu
+  const [isPagesDropdownOpen, setIsPagesDropdownOpen] = useState(false); // State for dropdown in desktop menu
 
   // Determine if navbar is in dark or light mode
   const isPropertiesDetails = location.pathname === "/PropertiesDetails";
@@ -26,11 +27,12 @@ function Navbar() {
   const arrowImage = isPropertiesDetails ? ArrowDark : ArrowLight; // Use appropriate arrow based on theme
 
   return (
-    <header className={`${navbarColor} h-28 w-full flex items-center`}>
-      <nav className="w-full flex items-center justify-between px-6 lg:px-[50px]">
+    <header className={`${navbarColor} h-28 w-full flex items-center relative z-50`}>
+      <nav className="w-full max-w-7.5xl mx-auto flex items-center justify-between sm:px-6">
+        {/* Logo */}
         <img src={logoImage} alt="Logo" className="h-10 w-auto" />
 
-        {/* Hamburger */}
+        {/* Hamburger Button for Mobile Menu */}
         <button
           className={`lg:hidden flex items-center`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -39,7 +41,6 @@ function Navbar() {
           {isMenuOpen ? (
             <img src={CloseIcon} alt="Close menu" className="h-8 w-8" />
           ) : (
-            // Hamburger icon made with divs
             <div className="flex flex-col justify-between w-8 h-6">
               <div className={`h-0.5 w-full rounded ${hamburgerColor}`} />
               <div className={`h-0.5 w-full rounded ${hamburgerColor}`} />
@@ -48,7 +49,7 @@ function Navbar() {
           )}
         </button>
 
-        {/* Navigation Desktop */}
+        {/* Desktop Navigation */}
         <ul className={`hidden lg:flex space-x-8 text-lg font-medium items-center`}>
           <li>
             <Link
@@ -76,30 +77,29 @@ function Navbar() {
           </li>
           <li className="relative">
             {/* Pages Dropdown */}
-            <Link
-              to="#"
+            <button
               className={`font-urbanist text-xl font-thin hover:text-secondary transition ${linkTextColor} flex items-center gap-2`}
               onClick={(e) => {
                 e.preventDefault();
-                setIsPagesOpen(!isPagesOpen);
+                setIsPagesDropdownOpen(!isPagesDropdownOpen);
               }}
             >
               Pages
               <img
-                src={arrowImage} // Use appropriate arrow based on theme
+                src={arrowImage}
                 alt="Arrow"
                 className={`w-6 h-6 transform transition-transform duration-300 ${
-                  isPagesOpen ? "rotate-180" : "rotate-0"
+                  isPagesDropdownOpen ? "rotate-180" : "rotate-0"
                 }`}
               />
-            </Link>
-            {isPagesOpen && (
-              <ul className="absolute mt-2 left-[-110px] bg-gradient rounded-lg bg-gradient py-2 w-48">
+            </button>
+            {isPagesDropdownOpen && (
+              <ul className="absolute mt-2 left-0 w-48 rounded-lg shadow-lg py-2 z-50 bg-white lg:bg-gradient lg:from-[#f7f5f0] lg:text-black">
                 <li>
                   <Link
                     to="/Properties"
-                    className="font-urbanist text-lg font-thin text-black px-4 py-2 block hover:text-secondary transition"
-                    onClick={() => setIsMenuOpen(false)}
+                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 lg:hover:bg-opacity-75 transition"
+                    onClick={() => setIsPagesDropdownOpen(false)}
                   >
                     Properties
                   </Link>
@@ -107,8 +107,8 @@ function Navbar() {
                 <li>
                   <Link
                     to="/PropertiesDetails"
-                    className="font-urbanist text-lg font-thin text-black px-4 py-2 block hover:text-secondary transition"
-                    onClick={() => setIsMenuOpen(false)}
+                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 lg:hover:bg-opacity-75 transition"
+                    onClick={() => setIsPagesDropdownOpen(false)}
                   >
                     Properties Details
                   </Link>
@@ -116,8 +116,8 @@ function Navbar() {
                 <li>
                   <Link
                     to="/contact-us"
-                    className="font-urbanist text-lg font-thin text-black px-4 py-2 block hover:text-secondary transition"
-                    onClick={() => setIsMenuOpen(false)}
+                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 lg:hover:bg-opacity-75 transition"
+                    onClick={() => setIsPagesDropdownOpen(false)}
                   >
                     Contact Us
                   </Link>
@@ -127,6 +127,7 @@ function Navbar() {
           </li>
         </ul>
 
+        {/* Get for Free Button */}
         <div className="hidden lg:block">
           <Button
             text="Get for Free"
@@ -135,14 +136,14 @@ function Navbar() {
           />
         </div>
 
-        {/* Sliding popup */}
+        {/* Mobile Sliding Menu */}
         <div
-          className={`fixed top-0 right-0 h-full w-full bg-white transition-transform duration-500 ease-in-out transform 
-            ${isMenuOpen ? "translate-x-0" : "translate-x-full"} z-50 lg:hidden`}
+          className={`fixed top-0 right-0 h-full w-full bg-white transition-transform duration-500 ease-in-out transform ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          } z-50 lg:hidden`}
         >
           <div className="flex items-center justify-between p-6">
             <img src={RealtifyeLogo} alt="Logo" className="h-10 w-auto" />
-
             <button
               className="text-black"
               onClick={() => setIsMenuOpen(false)}
@@ -152,6 +153,7 @@ function Navbar() {
             </button>
           </div>
 
+          {/* Mobile Menu Items */}
           <ul className="flex flex-col items-start space-y-4 py-4 px-6 text-black">
             <li>
               <Link
@@ -181,7 +183,7 @@ function Navbar() {
               </Link>
             </li>
             <li>
-              {/* Dropdown for Pages */}
+              {/* Mobile Dropdown for Pages */}
               <button
                 className={`font-urbanist text-xl font-thin hover:text-secondary transition text-black flex items-center gap-2`}
                 onClick={() => setIsPagesOpen(!isPagesOpen)}

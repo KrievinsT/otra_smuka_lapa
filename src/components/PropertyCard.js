@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import SearchBar from "../components/SearchBar";
 import { ReactComponent as RightArrow } from "../Images/Rightarrow.svg";
+import Button from "../components/Button";
 import SectionImage from "../Images/home-hero.avif"; // Import Section Image
 import PlayButton from "../Images/play-button.svg"; // Import the play button icon
 import VideoHero from "../Videos/video-hero-transcode.mp4"; // Import the video
 import PropertyCard from "../components/PropertyCard"; // Import PropertyCard component
-import properties from "../data/PropertiesData"; // Import properties data
-import Button from "../components/Button"; // Import reusable Button component
 
 function Home() {
   return (
@@ -20,14 +19,12 @@ function Home() {
             <h2 className="font-urbanist text-3xl font-normal lg:hidden">
               Find the right and best home for your family
             </h2>
-            {/* Reusable Button Component for Start Exploring */}
-            <Button
-              text="Start Exploring"
-              variant="outlineOrange"
-              className="mt-4 flex items-center"
+            <button
+              className="font-urbanist text-lg px-8 py-3 rounded-full border border-white text-white hover:bg-white hover:text-primary transition-all duration-500 ease-in-out flex items-center"
             >
+              Start Exploring
               <RightArrow className="w-4 h-4 ml-2 transition-colors duration-0 ease-in-out" />
-            </Button>
+            </button>
           </div>
           {/* Image Section with Video Overlay */}
           <div className="relative flex-shrink-0 mb-8 lg:mb-0 max-w-[500px]">
@@ -67,20 +64,38 @@ function Home() {
           <h2 className="font-urbanist text-4xl font-semibold text-primary">
             New Listings
           </h2>
-          {/* Reusable Button Component for Explore All */}
-          <Button
-            text="Explore All"
-            variant="outlineOrange"
-            className="flex items-center"
-          >
+          <button className="font-urbanist text-lg text-secondary border border-secondary px-6 py-2 rounded-full hover:bg-secondary hover:text-white transition-all duration-300 ease-in-out flex items-center">
+            Explore All
             <RightArrow className="w-4 h-4 ml-2" />
-          </Button>
+          </button>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {/* Using PropertyCard for each listing from the properties data */}
-          {properties.slice(0, 6).map((property) => (
+          {/* Using PropertyCard for each listing */}
+          {[
+            {
+              image: "https://via.placeholder.com/300", // Example image link
+              name: "Pine Estates",
+              price: "180000",
+              address: "222 Spruce Street, Springfield",
+              totalLandArea: "1000 Sq.Ft",
+            },
+            {
+              image: "https://via.placeholder.com/300", // Example image link
+              name: "Maple Grove",
+              price: "400000",
+              address: "333 Cherry Lane, Springfield",
+              totalLandArea: "2200 Sq.Ft",
+            },
+            {
+              image: "https://via.placeholder.com/300", // Example image link
+              name: "Willow Heights",
+              price: "290000",
+              address: "444 Ash Boulevard, Springfield",
+              totalLandArea: "1600 Sq.Ft",
+            },
+          ].map((property, index) => (
             <PropertyCard
-              key={property.id}
+              key={index}
               image={property.image}
               name={property.name}
               price={property.price}

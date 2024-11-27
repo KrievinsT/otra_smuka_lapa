@@ -7,6 +7,9 @@ module.exports = {
       fontFamily: {
         urbanist: ["Urbanist", "sans-serif"], // Add Urbanist as a custom font family
       },
+      maxWidth: {
+        '7.5xl': '84rem', // Customize this value as per your needs
+      },
       colors: {
         primary: "#09261D", // Background Primary
         secondary: "#FF6314", // Background Secondary
