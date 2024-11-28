@@ -9,17 +9,21 @@ import properties from "../data/PropertiesData"; // Import properties data
 import Button from "../components/Button"; // Import reusable Button component
 import AboutImageHouse from "../Images/home-about-image-float.png"; // Import the About Us main image
 import AboutImageMain from "../Images/home-about-image.avif"; // Import the About Us secondary image
-import Dollar from "../Images/dollar-icon.svg";
-import Like from "../Images/like-icon.svg";
-import People from "../Images/people-icon.svg";
-import FeaturedListings from "../components/FeaturedListings";
+import Dollar from "../Images/dollar-icon.svg"; // Dollar icon
+import Like from "../Images/like-icon.svg"; // Like icon
+import People from "../Images/people-icon.svg"; // People icon
+import FeaturedListings from "../components/FeaturedListings"; // Import FeaturedListings component
+import Testimonials from "../components/Testimonials"; // Import Testimonials component
+import FAQAccordion from "../components/FAQAccordion";
+import faqData from "../data/FAQdata";
 
 function Home() {
   console.log("Home component has started rendering");
   return (
     <>
+      {/* Hero Section */}
       <section className="bg-primary text-white w-full pb-12 lg:pb-0">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-12">
+        <div className="max-w-7.5xl mx-auto flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-20">
           <div className="w-full lg:w-7/12 flex flex-col items-start space-y-8 lg:text-left">
             <h2 className="hidden lg:block font-urbanist text-7xl font-medium">
               Find the right and best home for your family
@@ -30,7 +34,7 @@ function Home() {
             {/* Reusable Button Component for Start Exploring */}
             <Button
               text="Start Exploring"
-              variant="outlineOrange"
+              variant="default"
               className="mt-4 flex items-center"
             >
               <RightArrow className="w-4 h-4 ml-2 transition-colors duration-0 ease-in-out" />
@@ -60,16 +64,18 @@ function Home() {
           </div>
         </div>
       </section>
+
       {/* Search Bar Section */}
-      <div className="relative w-full bg-white py-8 bg-[linear-gradient(to_bottom,_#09261D_50%,_#ffffff_50%)]">
-        <div className="max-w-7.5xl mx-auto px-4 sm:px-6">
+      <div className="relative w-full py-8 bg-[linear-gradient(to_bottom,_#09261D_50%,_#ffffff_50%)]">
+        <div className="max-w-7.5xl mx-auto px-8 sm:px-16 lg:px-20">
           <div className="w-full flex items-center justify-center">
             <SearchBar />
           </div>
         </div>
       </div>
+
       {/* New Listings Section */}
-      <section className="max-w-7xl mx-auto mt-16 px-4 md:px-8 lg:px-12 pb-32">
+      <section className="max-w-full bg-white mx-auto px-4 md:px-8 lg:px-12 pb-32 pt-16">
         <div className="flex items-center justify-between mb-8">
           <h2 className="font-urbanist text-4xl font-semibold text-primary">
             New Listings
@@ -97,8 +103,10 @@ function Home() {
           ))}
         </div>
       </section>
-      <section className="w-full bg-primary text-white pt-28 pb-64 px-6 md:px-16 lg:px-20">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between relative">
+
+      {/* About Us Section */}
+      <section className="w-full bg-primary text-white pt-32 pb-40 px-8 md:px-16 lg:px-20">
+        <div className="max-w-7.5xl mx-auto flex flex-col md:flex-row items-center justify-between relative">
           <div className="relative flex w-full md:w-1/2 justify-start items-start">
             <div className="w-[520px] h-auto">
               <img
@@ -117,28 +125,24 @@ function Home() {
           </div>
           <div className="w-full md:w-1/2 mt-16 md:mt-0 flex flex-col space-y-4 z-10 px-4">
             <h3 className="font-urbanist text-2xl font-normal mb-4">About Us</h3>
-            <h4 className="font-urbanist text-7xl font-medium">
-              About our
-            </h4>
-            <h4 className="font-urbanist text-7xl font-medium">
-              Real Estate Firm
-            </h4>
+            <h4 className="font-urbanist text-7xl font-medium">About our</h4>
+            <h4 className="font-urbanist text-7xl font-medium">Real Estate Firm</h4>
             <div className="pb-6">
-            <p className="font-normal text-lg mt-4">
-              Our mission is simple: to provide unparalleled expertise, guidance,
-              and support to our clients across their real estate journey.
-            </p>
+              <p className="font-normal text-lg mt-4">
+                Our mission is simple: to provide unparalleled expertise, guidance,
+                and support to our clients across their real estate journey.
+              </p>
             </div>
             <div className="mt-8 space-y-6">
-            <div className="pb-4">
-              <div className="flex items-center space-x-4">
-                <span className="text-green-400 text-2xl w-">
-                  <img
-                    src={Dollar}
-                    alt="House"
-                    className="w-[40px] h-[40px] object-cover"
-                  />
-                </span>
+              <div className="pb-4">
+                <div className="flex items-center space-x-4">
+                  <span className="text-green-400 text-2xl w-">
+                    <img
+                      src={Dollar}
+                      alt="House"
+                      className="w-[40px] h-[40px] object-cover"
+                    />
+                  </span>
                   <div>
                     <h4 className="font-normal text-3xl">Affordable Price</h4>
                     <p className="font-base">
@@ -185,7 +189,21 @@ function Home() {
           </div>
         </div>
       </section>
-      <FeaturedListings />
+      <section className="bg-white w-full pt-8 pb-16">
+        <div className="max-w-7.5xl mx-auto px-8 md:px-16 lg:px-20">
+          <FeaturedListings />
+        </div>
+      </section>
+      <section className="bg-secondary w-full py-52">
+        <div className="max-w-7.5xl mx-auto px-8 md:px-16 lg:px-20">
+          <Testimonials />
+        </div>
+      </section>
+      <section className="bg-white w-full pt-8 pb-16">
+        <div className="max-w-7.5xl mx-auto px-8 md:px-16 lg:px-20">
+          <FAQAccordion faqItems={faqData} />
+        </div>
+      </section>
     </>
   );
 }
