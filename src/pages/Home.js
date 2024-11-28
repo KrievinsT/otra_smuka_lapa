@@ -1,19 +1,19 @@
 import React from "react";
 import SearchBar from "../components/SearchBar";
 import { ReactComponent as RightArrow } from "../Images/Rightarrow.svg";
-import SectionImage from "../Images/home-hero.avif"; // Import Section Image
-import PlayButton from "../Images/play-button.svg"; // Import the play button icon
-import VideoHero from "../Videos/video-hero-transcode.mp4"; // Import the video
-import PropertyCard from "../components/PropertyCard"; // Import PropertyCard component
-import properties from "../data/PropertiesData"; // Import properties data
-import Button from "../components/Button"; // Import reusable Button component
-import AboutImageHouse from "../Images/home-about-image-float.png"; // Import the About Us main image
-import AboutImageMain from "../Images/home-about-image.avif"; // Import the About Us secondary image
-import Dollar from "../Images/dollar-icon.svg"; // Dollar icon
-import Like from "../Images/like-icon.svg"; // Like icon
-import People from "../Images/people-icon.svg"; // People icon
-import FeaturedListings from "../components/FeaturedListings"; // Import FeaturedListings component
-import Testimonials from "../components/Testimonials"; // Import Testimonials component
+import SectionImage from "../Images/home-hero.avif";
+import PlayButton from "../Images/play-button.svg"; 
+import VideoHero from "../Videos/video-hero-transcode.mp4";
+import PropertyCard from "../components/PropertyCard";
+import properties from "../data/PropertiesData"; 
+import Button from "../components/Button";
+import AboutImageHouse from "../Images/home-about-image-float.png";
+import AboutImageMain from "../Images/home-about-image.avif";
+import Dollar from "../Images/dollar-icon.svg";
+import Like from "../Images/like-icon.svg";
+import People from "../Images/people-icon.svg";
+import FeaturedListings from "../components/FeaturedListings";
+import Testimonials from "../components/Testimonials";
 import FAQAccordion from "../components/FAQAccordion";
 import faqData from "../data/FAQdata";
 
@@ -25,10 +25,10 @@ function Home() {
       <section className="bg-primary text-white w-full pb-12 lg:pb-0">
         <div className="max-w-7.5xl mx-auto flex flex-col lg:flex-row items-center justify-between px-8 md:px-16 lg:px-20">
           <div className="w-full lg:w-7/12 flex flex-col items-start space-y-8 lg:text-left">
-            <h2 className="hidden lg:block font-urbanist text-7xl font-medium">
+            <h2 className="hidden lg:block font-urbanist lg:text-6xl xl:text-7xl font-medium">
               Find the right and best home for your family
             </h2>
-            <h2 className="font-urbanist text-3xl font-normal lg:hidden">
+            <h2 className="font-urbanist text-4xl md:text-6xl font-normal lg:hidden">
               Find the right and best home for your family
             </h2>
             {/* Reusable Button Component for Start Exploring */}
@@ -189,7 +189,7 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-white w-full pt-8 pb-16">
+      <section className="bg-white w-full py-52">
         <div className="max-w-7.5xl mx-auto px-8 md:px-16 lg:px-20">
           <FeaturedListings />
         </div>
@@ -199,7 +199,7 @@ function Home() {
           <Testimonials />
         </div>
       </section>
-      <section className="bg-white w-full pt-8 pb-16">
+      <section className="bg-white w-full py-52">
         <div className="max-w-7.5xl mx-auto px-8 md:px-16 lg:px-20">
           <FAQAccordion faqItems={faqData} />
         </div>

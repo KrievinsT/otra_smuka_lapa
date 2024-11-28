@@ -2,11 +2,11 @@
 const faqData = [
     {
         question: "What services does Homeifye offer?",
-        answer: "Homeifye offers a variety of real estate services including property listings, virtual tours, and assistance with buying or renting properties.",
+        answer :"Homeifye connects buyers, sellers, and renters with a wide range of real estate services, including property listings, home valuation, and expert guidance through every step of the buying, selling, or renting process.",
     },
     {
         question: "How can I schedule a property tour?",
-        answer: "You can easily schedule a property tour by selecting a property on our platform and choosing an available date for the tour.",
+        answer: "You can easily schedule a property tour on Homeifye by selecting your preferred listing and clicking on the Schedule a Tour button. Our team will coordinate with the property owner or agent to confirm your tour.",
     },
     {
         question: "Does Homeifye provide financing assistance?",
