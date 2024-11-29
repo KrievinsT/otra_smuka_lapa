@@ -17,9 +17,11 @@ function Navbar() {
   // Determine if navbar is in dark or light mode
   const isPropertiesDetails = location.pathname === "/PropertiesDetails";
   const logoImage =
-    isMenuOpen && window.innerWidth < 1024 ? RealtifyeLogo : // When burger menu is open on mobile, use Realtifye logo
-    isPropertiesDetails ? HomeifyeLogoDark : // When in light mode (e.g., PropertiesDetails), use dark logo
-    HomeifyeLogo; // Default logo for dark navbar or mobile closed state
+    isMenuOpen && window.innerWidth < 1024
+      ? RealtifyeLogo // When burger menu is open on mobile, use Realtifye logo
+      : isPropertiesDetails
+      ? HomeifyeLogoDark // When in light mode (e.g., PropertiesDetails), use dark logo
+      : HomeifyeLogo; // Default logo for dark navbar or mobile closed state
 
   const navbarColor = isPropertiesDetails ? "bg-white text-black" : "bg-primary text-white";
   const linkTextColor = isPropertiesDetails ? "text-black" : "text-white";
@@ -28,29 +30,12 @@ function Navbar() {
 
   return (
     <header className={`${navbarColor} h-28 w-full flex items-center relative z-50`}>
-      <nav className="w-full max-w-7.5xl mx-auto flex items-center justify-between sm:px-6">
+      <nav className="max-w-7xl w-full mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <img src={logoImage} alt="Logo" className="h-10 w-auto" />
 
-        {/* Hamburger Button for Mobile Menu */}
-        <button
-          className={`lg:hidden flex items-center`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle navigation"
-        >
-          {isMenuOpen ? (
-            <img src={CloseIcon} alt="Close menu" className="h-8 w-8" />
-          ) : (
-            <div className="flex flex-col justify-between w-8 h-6">
-              <div className={`h-0.5 w-full rounded ${hamburgerColor}`} />
-              <div className={`h-0.5 w-full rounded ${hamburgerColor}`} />
-              <div className={`h-0.5 w-full rounded ${hamburgerColor}`} />
-            </div>
-          )}
-        </button>
-
         {/* Desktop Navigation */}
-        <ul className={`hidden lg:flex space-x-8 text-lg font-medium items-center`}>
+        <ul className="hidden lg:flex space-x-8 text-lg font-medium items-center">
           <li>
             <Link
               to="/"
@@ -94,11 +79,11 @@ function Navbar() {
               />
             </button>
             {isPagesDropdownOpen && (
-              <ul className="absolute mt-2 left-0 w-48 rounded-lg shadow-lg py-2 z-50 bg-white lg:bg-gradient lg:from-[#f7f5f0] lg:text-black">
+              <ul className="absolute mt-2 left-0 w-48 rounded-lg shadow-lg py-2 z-50 bg-white">
                 <li>
                   <Link
                     to="/Properties"
-                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 lg:hover:bg-opacity-75 transition"
+                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 transition"
                     onClick={() => setIsPagesDropdownOpen(false)}
                   >
                     Properties
@@ -107,7 +92,7 @@ function Navbar() {
                 <li>
                   <Link
                     to="/PropertiesDetails"
-                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 lg:hover:bg-opacity-75 transition"
+                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 transition"
                     onClick={() => setIsPagesDropdownOpen(false)}
                   >
                     Properties Details
@@ -116,7 +101,7 @@ function Navbar() {
                 <li>
                   <Link
                     to="/contact-us"
-                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 lg:hover:bg-opacity-75 transition"
+                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 transition"
                     onClick={() => setIsPagesDropdownOpen(false)}
                   >
                     Contact Us
@@ -131,10 +116,27 @@ function Navbar() {
         <div className="hidden lg:block">
           <Button
             text="Get for Free"
-            className={`font-thin text-xl px-4 py-2`}
+            className="font-thin text-xl px-6 py-2 border-2 border-white rounded-full hover:bg-white hover:text-primary transition"
             variant={isPropertiesDetails ? "darkdefault" : "default"}
           />
         </div>
+
+        {/* Mobile Hamburger Menu */}
+        <button
+          className={`lg:hidden flex items-center`}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle navigation"
+        >
+          {isMenuOpen ? (
+            <img src={CloseIcon} alt="Close menu" className="h-8 w-8" />
+          ) : (
+            <div className="flex flex-col justify-between w-8 h-6">
+              <div className={`h-0.5 w-full rounded ${hamburgerColor}`} />
+              <div className={`h-0.5 w-full rounded ${hamburgerColor}`} />
+              <div className={`h-0.5 w-full rounded ${hamburgerColor}`} />
+            </div>
+          )}
+        </button>
 
         {/* Mobile Sliding Menu */}
         <div
@@ -185,7 +187,7 @@ function Navbar() {
             <li>
               {/* Mobile Dropdown for Pages */}
               <button
-                className={`font-urbanist text-xl font-thin hover:text-secondary transition text-black flex items-center gap-2`}
+                className="font-urbanist text-xl font-thin hover:text-secondary transition text-black flex items-center gap-2"
                 onClick={() => setIsPagesOpen(!isPagesOpen)}
               >
                 Pages

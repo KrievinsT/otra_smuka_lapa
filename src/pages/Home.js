@@ -189,12 +189,12 @@ function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-white w-full py-52">
-        <div className="max-w-7.5xl mx-auto px-8 md:px-16 lg:px-20">
+      <section className="w-full bg-white py-52">
+        <div className="max-w-7xl mx-auto px-8 md:px-16 lg:px-20">
           <FeaturedListings />
         </div>
       </section>
-      <section className="bg-secondary w-full py-52">
+      <section className="bg-secondary w-full overflow-hidden flex w-full py-52">
         <div className="max-w-7.5xl mx-auto px-8 md:px-16 lg:px-20">
           <Testimonials />
         </div>
