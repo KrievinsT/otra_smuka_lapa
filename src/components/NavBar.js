@@ -79,11 +79,11 @@ function Navbar() {
               />
             </button>
             {isPagesDropdownOpen && (
-              <ul className="absolute mt-2 left-0 w-48 rounded-lg shadow-lg py-2 z-50 bg-white">
+              <ul className="absolute mt-2 left-0 w-48 rounded-lg shadow-lg py-2 z-50 bg-gradient">
                 <li>
                   <Link
                     to="/Properties"
-                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 transition"
+                    className="font-urbanist text-lg font-thin px-4 py-2 block transition text-black hover:text-secondary"
                     onClick={() => setIsPagesDropdownOpen(false)}
                   >
                     Properties
@@ -92,7 +92,7 @@ function Navbar() {
                 <li>
                   <Link
                     to="/PropertiesDetails"
-                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 transition"
+                    className="font-urbanist text-lg font-thin px-4 py-2 block transition text-black hover:text-secondary"
                     onClick={() => setIsPagesDropdownOpen(false)}
                   >
                     Properties Details
@@ -101,7 +101,7 @@ function Navbar() {
                 <li>
                   <Link
                     to="/contact-us"
-                    className="font-urbanist text-lg font-thin px-4 py-2 block hover:bg-gray-100 transition"
+                    className="font-urbanist text-lg font-thin px-4 py-2 block transition text-black hover:text-secondary"
                     onClick={() => setIsPagesDropdownOpen(false)}
                   >
                     Contact Us

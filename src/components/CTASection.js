@@ -1,12 +1,11 @@
 import React from "react";
 import { ReactComponent as RightArrow } from "../Images/Rightarrow.svg";
-import Button from "../components/Button";
 import SectionImage from "../Images/section-cta-image.png";
 
 function CTASection() {
   return (
     <section className="bg-primary text-white w-full pb-12 lg:pb-0">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 md:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-8 lg:px-12">
         
         {/* Image Section */}
         <div className="flex-shrink-0 mb-8 lg:mb-0">

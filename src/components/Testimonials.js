@@ -67,76 +67,84 @@ function Testimonials() {
         </div>
 
         {/* Testimonial Image and Navigation Section */}
-        <div className="w-full md:w-3/4 lg:w-1/2 flex flex-col lg:items-center xl:items-end lg:items-end">
+        <div className="w-full md:w-3/4 lg:w-1/6 flex flex-col lg:items-center xl:items-end lg:items-end">
           {/* Testimonial Image */}
-          <div className="sm:w-[300px] md:w-[400px] lg:w-full">
+          <div className="sm:w-[200px] md:w-[300px] lg:w-[500px]">
             <img
               src={image}
               alt={author}
               className="object-cover w-full h-auto"
             />
           </div>
+{/* Navigation Buttons */}
+<div className="lg:mt-[2rem] xl:mt-[-4rem] xl:mr-[38rem] lg:mr-[18rem] md:mt-[2rem] md:mr-[20rem] mt-[4rem] flex lg:justify-end space-x-6">
+  {/* Previous Button (Left Arrow) */}
+  <Button
+  variant="default"
+  onClick={prevTestimonial}
+  className="p-3 md:p-4 w-12 h-12 rounded-full group transition-transform duration-300 transform hover:text-secondary flex items-center justify-center"
+>
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="transition-colors duration-300 text-white group-hover:text-secondary"
+  >
+    <path
+      d="M12 5L2 10L12 15"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <line
+      x1="2"
+      y1="10"
+      x2="17"
+      y2="10"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+    />
+  </svg>
+</Button>
 
-          {/* Navigation Buttons */}
-          <div className="lg:mt-[2rem] xl:mt-[-4rem] xl:mr-[38rem] lg:mr-[18rem] md:mt-[2rem] md:mr-[20rem] mt-[4rem] flex lg:justify-end space-x-6">
-            {/* Previous Button */}
-            <Button
-              variant="default"
-              onClick={prevTestimonial}
-              className="p-3 md:p-4 rounded-full group transition-transform duration-300 transform hover:text-secondary flex items-center justify-center"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="transition-colors duration-300 text-white group-hover:text-secondary"
-              >
-                <path
-                  d="M15 12H6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M11 7L6 12L11 17"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </Button>
+  {/* Next Button (Right Arrow) */}
+  <Button
+    variant="default"
+    onClick={nextTestimonial}
+    className="p-4 md:p-4 w-12 h-12 rounded-full group transition-transform duration-300 transform hover:text-secondary flex items-center justify-center"
+  >
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="transition-colors duration-300 text-white group-hover:text-secondary"
+    >
+      <path
+        d="M7 5L17 10L7 15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <line
+        x1="2"
+        y1="10"
+        x2="17"
+        y2="10"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  </Button>
+</div>
 
-            {/* Next Button */}
-            <Button
-              variant="default"
-              onClick={nextTestimonial}
-              className="p-3 md:p-4 rounded-full group transition-transform duration-300 transform hover:text-secondary flex items-center justify-center"
-            >
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="transition-colors duration-300 text-white group-hover:text-secondary"
-              >
-                <path
-                  d="M9 12H18"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M13 7L18 12L13 17"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </Button>
-          </div>
         </div>
       </div>
     </section>

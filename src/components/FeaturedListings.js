@@ -8,7 +8,7 @@ function FeaturedListings() {
   const [hovered, setHovered] = useState(null);
 
   return (
-    <section className="w-full max-w-7xl mx-auto py-12 px-4 md:px-8 lg:px-12">
+    <section className="w-full max-w-7xl mx-auto py-12 px-2 md:px-8 lg:px-12">
       {/* Responsive Heading */}
       <div className="overflow-hidden">
         <h2 className="font-urbanist text-4xl md:text-5xl lg:text-7xl font-medium text-primary mb-8 md:mb-12">
@@ -88,7 +88,7 @@ function FeaturedListings() {
           <Button
             text="Explore All Properties"
             variant="outlineOrange"
-            className="flex items-center w-48 md:w-60 group"
+            className="flex items-center w-60 font-urbanist md:w-60 group"
           >
             <RightArrow className="w-4 h-4 ml-2 transition-colors duration-500 group-hover:fill-white group-hover:text-white text-secondary" />
           </Button>

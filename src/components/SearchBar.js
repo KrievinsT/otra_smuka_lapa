@@ -61,7 +61,7 @@ function SearchBar() {
         <div ref={popupRef} className="flex flex-wrap items-center justify-between w-full space-y-4 lg:space-y-0 lg:space-x-4 mt-4 xl:mt-0">
 
           {/* Properties Popup */}
-          <div className="relative w-full md:w-[32%] lg:w-[32%] xl:w-[31%]">
+          <div className="relative w-full md:w-[32%] lg:w-[31%] xl:w-[31%]">
             <div
               className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-12 md:h-14 lg:h-14 xl:h-18 cursor-pointer"
               onClick={() => togglePopup("properties")}
@@ -86,7 +86,7 @@ function SearchBar() {
           </div>
 
           {/* Location Popup */}
-          <div className="relative w-full md:w-[32%] lg:w-[32%] xl:w-[31%]">
+          <div className="relative w-full md:w-[32%] lg:w-[31%] xl:w-[31%]">
             <div
               className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-12 md:h-14 lg:h-14 xl:h-18 cursor-pointer"
               onClick={() => togglePopup("location")}
@@ -111,7 +111,7 @@ function SearchBar() {
           </div>
 
           {/* Types Popup */}
-          <div className="relative w-full md:w-[32%] lg:w-[32%] xl:w-[31%]">
+          <div className="relative w-full md:w-[32%] lg:w-[31%] xl:w-[31%]">
             <div
               className="flex items-center bg-white rounded-full px-4 py-4 border border-gray-200 space-x-2 h-12 md:h-14 lg:h-14 xl:h-18 cursor-pointer"
               onClick={() => togglePopup("types")}
