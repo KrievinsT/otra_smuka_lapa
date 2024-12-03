@@ -1,7 +1,13 @@
 const properties = [
   {
     id: 1,
-    image: "/Images/Property1.avif",
+    image: [
+      "/Images/Property1.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Pine Estates",
     price: "180000",
     description: "A beautiful estate located in a serene pine forest.",
@@ -18,7 +24,12 @@ const properties = [
   },
   {
     id: 2,
-    image: "/Images/Property2.avif",
+    image: ["/Images/Property2.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Maple Grove",
     price: "400000",
     description: "A spacious house in Maple Grove with modern amenities.",
@@ -35,7 +46,12 @@ const properties = [
   },
   {
     id: 3,
-    image: "/Images/Property3.avif",
+    image: ["/Images/Property3.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Willow Heights",
     price: "290000",
     description: "A charming residence in Willow Heights with a large garden.",
@@ -52,7 +68,12 @@ const properties = [
   },
   {
     id: 4,
-    image: "/Images/Property4.avif",
+    image: ["/Images/Property4.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Cedar Manor",
     price: "350000",
     description: "A cozy manor surrounded by cedar trees.",
@@ -69,7 +90,12 @@ const properties = [
   },
   {
     id: 5,
-    image: "/Images/Property5.avif",
+    image: ["/Images/Property5.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Oak Villa",
     price: "500000",
     description: "A luxurious villa with a stunning oak interior.",
@@ -86,7 +112,12 @@ const properties = [
   },
   {
     id: 6,
-    image: "/Images/Property6.avif",
+    image: ["/Images/Property6.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Sunset Cottage",
     price: "210000",
     description: "A small, picturesque cottage perfect for enjoying sunsets.",
@@ -103,7 +134,12 @@ const properties = [
   },
   {
     id: 7,
-    image: "/Images/Property7.avif",
+    image: ["/Images/Property7.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Birch Bungalow",
     price: "310000",
     description: "A modern bungalow in a peaceful birch neighborhood.",
@@ -120,7 +156,12 @@ const properties = [
   },
   {
     id: 8,
-    image: "/Images/Property8.avif",
+    image: ["/Images/Property8.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Aspen Retreat",
     price: "450000",
     description: "A mountain retreat surrounded by beautiful aspen trees.",
@@ -137,7 +178,12 @@ const properties = [
   },
   {
     id: 9,
-    image: "/Images/Property9.avif",
+    image: ["/Images/Property9.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Elm Residence",
     price: "390000",
     description: "A spacious residence with an elm-lined garden.",
@@ -154,7 +200,12 @@ const properties = [
   },
   {
     id: 10,
-    image: "/Images/Property10.avif",
+    image: ["/Images/Property10.avif"],
+    images:[
+      "/Images/Property1.avif",
+      "/Images/Property2.avif",
+      "/Images/Property3.avif",
+    ],
     name: "Magnolia House",
     price: "420000",
     description: "A charming house surrounded by blooming magnolia trees.",

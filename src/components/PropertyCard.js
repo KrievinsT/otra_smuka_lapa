@@ -38,14 +38,15 @@ function PropertyCard({ image, name, price, address, totalLandArea }) {
         <div className="md:text-left w-full">
           {/* Single-line address for all screen sizes except md and lg */}
           <span className="block md:hidden lg:hidden xl:block">{address}</span>
-          
+
           {/* Two-line address for md and lg screen sizes only */}
           <div className="hidden md:flex lg:flex flex-col xl:hidden">
             <span>{addressParts[0].trim()},</span>
             {addressParts[1] && <span>{addressParts[1].trim()}</span>}
           </div>
         </div>
-        <span>{totalLandArea}</span>
+        {/* Total Land Area on a single line */}
+        <span className="whitespace-nowrap">{totalLandArea}</span>
       </div>
     </div>
   );
