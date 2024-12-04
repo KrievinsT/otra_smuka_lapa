@@ -1,13 +1,21 @@
 import React from "react";
-import PropertyDetHeading from "../components/PropertyDetHeading";
+import { useParams } from "react-router-dom";
 import properties from "../data/PropertiesData";
+import PropertyDetHeading from "../components/PropertyDetHeading";
 import LuxuriousFeatures from "../components/LuxuriousFeatures";
 import PropertyFloorPlan from "../components/PropertyFloorPlan";
 import SimilarListings from "../components/SimilarListings";
 import PropertyDetailsSection from "../components/PropertyDetailsSections";
 
-function PropertyDetails() {
-  const selectedProperty = properties.find((property) => property.id === 1); // Display first property for now
+function PropertiesDetails() {
+  const { id } = useParams(); // Get the property ID from the URL
+  const selectedProperty = properties.find(
+    (property) => property.id === parseInt(id, 10)
+  );
+
+  if (!selectedProperty) {
+    return <div>Property not found</div>;
+  }
 
   return (
     <div>
@@ -24,4 +32,4 @@ function PropertyDetails() {
   );
 }
 
-export default PropertyDetails;
+export default PropertiesDetails;

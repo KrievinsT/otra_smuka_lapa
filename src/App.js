@@ -12,20 +12,20 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        {/* Navbar Component */}
         <Navbar />
-        
         <main className="flex-grow bg-gray-100">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/Properties" element={<Properties />} />
-            <Route path="/PropertiesDetails" element={<PropertiesDetails />} />
+            <Route
+              path="/PropertiesDetails/:id"
+              element={<PropertiesDetails />}
+            />{" "}
+            {/* Updated */}
           </Routes>
         </main>
-
         <CTASection />
-        
         <Footer />
       </div>
     </Router>

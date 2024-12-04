@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import properties from "../data/PropertiesData";
 import Button from "../components/Button";
 import { ReactComponent as RightArrow } from "../Images/Rightarrow.svg";
@@ -6,6 +7,11 @@ import Arrow from "../Images/45Arrow-white.svg";
 
 function FeaturedListings() {
   const [hovered, setHovered] = useState(null);
+  const navigate = useNavigate(); // Initialize navigate function
+
+  const handleCardClick = (id) => {
+    navigate(`/PropertiesDetails/${id}`); // Navigate to the property details page
+  };
 
   return (
     <section className="w-full max-w-7xl mx-auto py-12 px-2 md:px-8 lg:px-12">
@@ -23,6 +29,7 @@ function FeaturedListings() {
               className="relative flex flex-col lg:flex-row items-start lg:items-stretch justify-between space-y-6 lg:space-y-0 lg:space-x-8 cursor-pointer"
               onMouseEnter={() => setHovered(property.id)}
               onMouseLeave={() => setHovered(null)}
+              onClick={() => handleCardClick(property.id)} // Handle click event
             >
               {/* Property Image */}
               <div className="w-full lg:w-1/2 overflow-hidden rounded-xl transition-transform duration-500">
@@ -45,8 +52,7 @@ function FeaturedListings() {
                   >
                     {property.name}
                   </h3>
-                  <a
-                    href={`/property/${property.id}`}
+                  <div
                     className={`flex items-center justify-center p-3 md:p-4 bg-primary rounded-full w-10 h-10 md:w-12 md:h-12 transition-all duration-500 transform absolute right-0 ${
                       hovered === property.id
                         ? "opacity-100 translate-y-0"
@@ -58,7 +64,7 @@ function FeaturedListings() {
                       alt="Arrow Icon"
                       className="w-5 h-5 fill-current transition-colors duration-500"
                     />
-                  </a>
+                  </div>
                 </div>
 
                 <p className="text-sm md:text-base lg:text-lg font-normal mb-4 leading-relaxed text-grey">

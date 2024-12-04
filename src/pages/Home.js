@@ -98,6 +98,7 @@ function Home() {
     {properties.slice(0, 3).map((property) => (
       <PropertyCard
         key={property.id}
+        id={property.id}
         image={property.image}
         name={property.name}
         price={property.price}
